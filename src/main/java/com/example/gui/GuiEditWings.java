@@ -53,7 +53,7 @@ public class GuiEditWings extends GuiScreen
         }
 
         settings.scale = sliderScale.getValueInt();
-        //adadaw
+        //adadsaw
     }
 
     @Override
