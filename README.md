@@ -1,6 +1,6 @@
 
 I will put your name everywhere xd
-Thanks ItsWormy (ImBeyondDarknees) for fixing my mod . legendary modder
+Thanks ItsWormy (ImBeyondDarknees) for fixing my mod . legendary modder if he didnt help me fxing the mod i will be wasting like 50+ hours
 
 
 
