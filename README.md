@@ -1,6 +1,6 @@
 
 I will put your name everywhere xd
-Thanks ImBeyondDarknees for fixing my mod 
+Thanks ItsWormy (ImBeyondDarknees) for fixing my mod . legendary modder
 
 
 
