@@ -1,7 +1,11 @@
 
-I will put your name everywhere xd
-Thanks ItsWormy (ImBeyondDarknees) for fixing my mod . legendary modder if he didnt help me fxing the mod i will be wasting like 50+ hours
-
+Thanks ItsWormy (ImBeyondDarknees) for fixing my mod . https://github.com/littlebroto1
+legendary modder if he didnt help me fxing the mod i will be wasting like 50+ hours 
+ItsWormy
+- removed blocks of codes that were not necessary
+- fix the model's anchor point 
+- make the transform working with rotation
+ill write more cya now
 
 
 
