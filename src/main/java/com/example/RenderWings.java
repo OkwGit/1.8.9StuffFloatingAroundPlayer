@@ -39,7 +39,7 @@ public class RenderWings extends ModelBase
         // Creating wing model renderer.
         wing = new ModelRenderer(this, "wing"); // Create a new ModelRenderer instance for the wing.
         wing.setTextureSize(16, 16); // Set the size of the texture for the wing.
-        wing.setRotationPoint(0F, 0, 0); // Set the rotation point for the wing.
+        wing.setRotationPoint(8F, 8, 8); // Set the rotation point for the wing.
         wing.addBox("bone", 0F, 0F, 0F, 16, 16, 16); // Add a box to the wing model to represent the bone.
 //        wing.addBox("skin", -10.0F, 0.0F, 0.5F, 10, 0, 10); // Add a box to the wing model to represent the skin.
 
@@ -69,13 +69,19 @@ public class RenderWings extends ModelBase
     private void renderWings(EntityPlayer player, float partialTicks)
     {
         double scale = settings.scale / 100D; // Get the scale for the wings from the settings.
+//        double modelHeight = settings.modelHeight / 100D; // Get the model height from the settings.
+
         double rotate = interpolate(player.prevRenderYawOffset, player.renderYawOffset, partialTicks); // Calculate the rotation for the wings.
 
         // OpenGL calls to transform the model based on player's position and orientation.
         GL11.glPushMatrix(); // Save the current transformation matrix.
         GL11.glScaled(-scale, -scale, scale); // Scale the model by the calculated scale.
         GL11.glRotated(180 + rotate, 0, 1, 0); // Rotate the model by the calculated rotation.
-        GL11.glTranslated(0, -(playerUsesFullHeight ? 1.45 : 1.25) / scale, 0); // Move the wings the correct amount up.
+//        GL11.glTranslated(0, -(playerUsesFullHeight ? 1.45 : 1.25) / scale, 0); // Move the wings the correct amount up.
+     //   GL11.glTranslated(   settings.xPosition/ 100.0,     -((playerUsesFullHeight ? 1.45 : 1.25) + (settings.modelHeight / 100.0)) / scale, 0);
+          GL11.glTranslated(settings.xPosition / 100.0, -((playerUsesFullHeight ? 1.45 : 1.25) + (settings.modelHeight / 100.0)) / scale, (settings.yPosition / 100.0) / scale);
+
+
         GL11.glTranslated(0, 0, 0.2 / scale); // Further translation.
 
         // If the player is sneaking, adjust the position of the wings.

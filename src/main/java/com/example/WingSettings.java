@@ -9,6 +9,9 @@ public class WingSettings
     public boolean colored;
     public boolean chroma;
     public int scale;
+    public int modelHeight; //Newly added
+    public int xPosition; //Newly added
+    public int yPosition; //Newly added
     public int hue;
 
     public WingSettings(Configuration config)
@@ -57,5 +60,14 @@ public class WingSettings
 
         prop = config.get("All", "Scale", 100);
         if (load) scale = prop.getInt(); else prop.set(scale);
+
+        prop = config.get("All", "ModelHeight", 100); //Newly added
+        if (load) modelHeight = prop.getInt(); else prop.set(modelHeight); //Newly added
+
+        prop = config.get("All", "xPosition", 0); //Newly added
+        if (load) xPosition = prop.getInt(); else prop.set(xPosition); //Newly added
+
+        prop = config.get("All", "yPosition", 0); //Newly added
+        if (load) yPosition = prop.getInt(); else prop.set(yPosition); //Newly added
     }
 }
