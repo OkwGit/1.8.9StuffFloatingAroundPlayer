@@ -18,6 +18,9 @@ public class GuiEditWings extends GuiScreen
     private GuiSlider sliderHeight;
     private GuiSlider sliderXPosition;
     private GuiSlider sliderYPosition;
+    private GuiSlider sliderAddBoxOffX;
+    private GuiSlider sliderAddBoxOffY;
+    private GuiSlider sliderAddBoxOffZ;
 
     private GuiButton buttonChroma;
     private GuiSlider sliderHue;
@@ -34,19 +37,22 @@ public class GuiEditWings extends GuiScreen
         buttonList.add(new GuiButton(0, width / 2 - 50, height / 2 - 50, 100, 20, "Wings: " + getColoredBool(settings.enabled)));
 
         // Add a slider to the button list
-        buttonList.add(sliderScale = new GuiSlider(1, width / 2 - 50, height / 2 - 25, 100, 20, "Scale: ", "%", 60, 140, settings.scale, false, true));
-        buttonList.add(sliderHeight = new GuiSlider(5, width / 2 - 50, height / 2 + 25, 100, 20, "SliderHeight: ", "%", 60, 140, settings.modelHeight, false, true));
-        buttonList.add(sliderXPosition = new GuiSlider(6, width / 2 - 50, height / 2 + 25 +25, 100, 20, "XPos: ", "%", -120, 100, settings.xPosition, false, true));
-        buttonList.add(sliderYPosition = new GuiSlider(7, width / 2 - 50, height / 2 + 25 +25 +25, 100, 20, "YPos: ", "%", -120, 100, settings.yPosition, false, true));
+        buttonList.add(sliderScale = new GuiSlider(1, width / 2 +100, height / 2 - 25, 100, 20, "Scale: ", "%", -100, 100, settings.scale, false, true));
+        buttonList.add(sliderHeight = new GuiSlider(5, width / 2 +100, height / 2 + 25, 100, 20, "SliderHeight: ", "%", -100, 100, settings.modelHeight, false, true));
+        buttonList.add(sliderXPosition = new GuiSlider(6, width / 2 +100, height / 2 + 25 +25, 100, 20, "XPos: ", "%", -100, 100, settings.xPosition, false, true));
+        buttonList.add(sliderYPosition = new GuiSlider(7, width / 2 +100, height / 2 + 25 +25 +25, 100, 20, "YPos: ", "%", -100, 200, settings.yPosition, false, true));
+        buttonList.add(sliderAddBoxOffX = new GuiSlider(8, width / 2 - 170, height / 2 - 25, 100, 20, "AddBoxOffX: ", "%", -100, 100, settings.addBoxOffX, false, true));
+        buttonList.add(sliderAddBoxOffY = new GuiSlider(9, width / 2 - 170, height / 2, 100, 20, "AddBoxOffY: ", "%", -160, 160, settings.addBoxOffY, false, true));
+        buttonList.add(sliderAddBoxOffZ = new GuiSlider(10, width / 2 - 170, height / 2 + 25, 100, 20, "AddBoxOffZ: ", "%", -100, 100, settings.addBoxOffZ, false, true));
 
         // Add a button to the button list
-        buttonList.add(new GuiButton(2, width / 2 - 50, height / 2, 100, 20, "Color: " + getColoredBool(settings.colored)));
+        buttonList.add(new GuiButton(2, width / 2 +100, height / 2, 100, 20, "Color: " + getColoredBool(settings.colored)));
 
         // Add a slider to the button list
-        buttonList.add(sliderHue = new GuiSlider(3, width / 2 - 50, height / 2 + 25, 100, 20, "Hue: ", "%", 0, 100, settings.hue, false, true));
+        buttonList.add(sliderHue = new GuiSlider(3, width / 2 +100, height / 2 + 25, 100, 20, "Hue: ", "%", 0, 100, settings.hue, false, true));
 
         // Add a button to the button list
-        buttonList.add(buttonChroma = new GuiButton(4, width / 2 - 50, height / 2 + 50, 100, 20, "Chroma: " + getColoredBool(settings.chroma)));
+        buttonList.add(buttonChroma = new GuiButton(4, width / 2 +100, height / 2 + 50, 100, 20, "Chroma: " + getColoredBool(settings.chroma)));
 
         // Set visibility based on a condition
         sliderHue.visible = settings.colored;
@@ -128,6 +134,17 @@ public class GuiEditWings extends GuiScreen
                 case 7:
                 settings.yPosition = sliderYPosition.getValueInt();
                 break;
+
+                case 8:
+                settings.addBoxOffX = sliderAddBoxOffX.getValueInt();
+                break;
+                 case 9:
+                settings.addBoxOffY = sliderAddBoxOffY.getValueInt();
+                break;
+                 case 10:
+                settings.addBoxOffZ = sliderAddBoxOffZ.getValueInt();
+                break;
+
         }
     }
 

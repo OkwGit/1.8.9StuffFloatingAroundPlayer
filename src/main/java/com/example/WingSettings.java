@@ -12,6 +12,9 @@ public class WingSettings
     public int modelHeight; //Newly added
     public int xPosition; //Newly added
     public int yPosition; //Newly added
+    public int addBoxOffX; //Newly added
+    public int addBoxOffY; //Newly added
+    public int addBoxOffZ; //Newly added
     public int hue;
 
     public WingSettings(Configuration config)
@@ -69,5 +72,15 @@ public class WingSettings
 
         prop = config.get("All", "yPosition", 0); //Newly added
         if (load) yPosition = prop.getInt(); else prop.set(yPosition); //Newly added
+
+        prop = config.get("All", "addBoxOffX", 0); //Newly added
+        if (load) addBoxOffX = prop.getInt(); else prop.set(addBoxOffX); //Newly added
+
+        prop = config.get("All", "addBoxOffY", 0); //Newly added
+        if (load) addBoxOffY = prop.getInt(); else prop.set(addBoxOffY); //Newly added
+
+        prop = config.get("All", "addBoxOffZ", 0); //Newly added
+        if (load) addBoxOffZ = prop.getInt(); else prop.set(addBoxOffZ); //Newly added
+
     }
 }

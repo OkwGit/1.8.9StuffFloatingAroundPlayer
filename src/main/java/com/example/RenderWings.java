@@ -27,7 +27,7 @@ public class RenderWings extends ModelBase
     {
         this.mc = Minecraft.getMinecraft(); // Get the current Minecraft instance.
         this.settings = settings; // Set the WingSettings instance.
-        this.location = new ResourceLocation("wingsmod", "glass.png"); // Set the ResourceLocation instance with the path to the wings texture.
+        this.location = new ResourceLocation("glasshead", "glass.png"); // Set the ResourceLocation instance with the path to the wings texture.
         this.playerUsesFullHeight = Loader.isModLoaded("animations"); // Check if the "animations" mod is loaded to set playerUsesFullHeight.
 
         // Setting texture offsets.
@@ -39,7 +39,7 @@ public class RenderWings extends ModelBase
         // Creating wing model renderer.
         wing = new ModelRenderer(this, "wing"); // Create a new ModelRenderer instance for the wing.
         wing.setTextureSize(16, 16); // Set the size of the texture for the wing.
-        wing.setRotationPoint(8F, 8, 8); // Set the rotation point for the wing.
+        wing.setRotationPoint(0F, 0, 0); // Set the rotation point for the wing.
         wing.addBox("bone", 0F, 0F, 0F, 16, 16, 16); // Add a box to the wing model to represent the bone.
 //        wing.addBox("skin", -10.0F, 0.0F, 0.5F, 10, 0, 10); // Add a box to the wing model to represent the skin.
 
@@ -68,26 +68,34 @@ public class RenderWings extends ModelBase
     // The renderWings method, which is responsible for rendering the wings on the player.
     private void renderWings(EntityPlayer player, float partialTicks)
     {
+
         double scale = settings.scale / 100D; // Get the scale for the wings from the settings.
+
 //        double modelHeight = settings.modelHeight / 100D; // Get the model height from the settings.
 
-        double rotate = interpolate(player.prevRenderYawOffset, player.renderYawOffset, partialTicks); // Calculate the rotation for the wings.
+//        double rotate = interpolate(player.prevRenderYawOffset, player.renderYawOffset, partialTicks); // Calculate the rotation for the wings.
+        float headYaw = player.prevRotationYawHead + (player.rotationYawHead - player.prevRotationYawHead) * partialTicks;
+        float headPitch = player.prevRotationPitch + (player.rotationPitch - player.prevRotationPitch) * partialTicks;
 
         // OpenGL calls to transform the model based on player's position and orientation.
         GL11.glPushMatrix(); // Save the current transformation matrix.
         GL11.glScaled(-scale, -scale, scale); // Scale the model by the calculated scale.
-        GL11.glRotated(180 + rotate, 0, 1, 0); // Rotate the model by the calculated rotation.
+//        GL11.glRotated(180 + rotate, 0, 1, 0); // Rotate the model by the calculated rotation.
+        GL11.glRotated(headYaw, 0, 1, 0); // Rotate the model based on player head yaw
+        GL11.glRotated(-headPitch, 1, 0, 0); // Rotate the model based on player head pitch
+
 //        GL11.glTranslated(0, -(playerUsesFullHeight ? 1.45 : 1.25) / scale, 0); // Move the wings the correct amount up.
      //   GL11.glTranslated(   settings.xPosition/ 100.0,     -((playerUsesFullHeight ? 1.45 : 1.25) + (settings.modelHeight / 100.0)) / scale, 0);
           GL11.glTranslated(settings.xPosition / 100.0, -((playerUsesFullHeight ? 1.45 : 1.25) + (settings.modelHeight / 100.0)) / scale, (settings.yPosition / 100.0) / scale);
 
 
-        GL11.glTranslated(0, 0, 0.2 / scale); // Further translation.
+//        GL11.glTranslated(0, 0, 0.2 / scale); // Further translation.
+// GL11.glTranslated(settings.addBoxOffX/ 100.0, settings.addBoxOffY/ 100.0, settings.addBoxOffZ/ 100.0 / scale); // Further translation.
 
         // If the player is sneaking, adjust the position of the wings.
         if (player.isSneaking())
         {
-            GL11.glTranslated(0D, 0.125D / scale, 0D); // Translate the model downwards.
+//            GL11.glTranslated(0D, 0.125D / scale, 0D); // Translate the model downwards.
         }
 
         // Get the color settings for the wings.
