@@ -40,7 +40,7 @@ public class RenderWings extends ModelBase
         wing = new ModelRenderer(this, "wing"); // Create a new ModelRenderer instance for the wing.
         wing.setTextureSize(16, 16); // Set the size of the texture for the wing.
         wing.setRotationPoint(0F, 0, 0); // Set the rotation point for the wing.
-        wing.addBox("bone", 0F, 0F, 0F, 10, 10, 10); // Add a box to the wing model to represent the bone.
+        wing.addBox("bone", 0F, 0F, 0F, 16, 16, 16); // Add a box to the wing model to represent the bone.
 //        wing.addBox("skin", -10.0F, 0.0F, 0.5F, 10, 0, 10); // Add a box to the wing model to represent the skin.
 
         // Creating wing tip model renderer.
