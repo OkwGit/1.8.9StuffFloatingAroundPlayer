@@ -1,4 +1,24 @@
-# Architectury Loom based template for 1.8.9 forge mods
+
+I will put your name everywhere xd
+Thanks ImBeyondDarknees for fixing my mod 
+
+
+
+
+
+
+
+
+#
+
+
+
+
+
+
+
+
+Architectury Loom based template for 1.8.9 forge mods
 
 **For other templates, do check out the [other branches of this repository](https://github.com/romangraef/Forge1.8.9Template/branches/all)**
 
